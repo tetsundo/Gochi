@@ -1,8 +1,10 @@
 class GochiesController < ApplicationController
-  def index
+  def new
+  	@gochi = Gochies.new
   end
 
-  def new
+  def index
+  	@gochies = Gochies.find
   end
 
   def complete
