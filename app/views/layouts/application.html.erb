@@ -10,14 +10,18 @@
 
   <body>
     <header class="ui borderless main menu">
-
-    <div class="ui text container">
-      <div class="header item">
-        <h2>Gochi</h2>
+      <div class="ui text container">
+        <div class="header item">
+          <h2>Gochi</h2>
+        </div>
+        <% if user_signed_in? %>
+          <%= link_to "マイページ", user_path(current_user.id), class: "item" %>
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "item" %>
+        <% else %>
+          <%= link_to '登録', new_user_registration_path, class: "item" %>
+          <%= link_to 'ログイン', new_user_session_path, class: "item" %>
+        <% end %>
       </div>
-      <%#= link_to "マイページ", user_path(user), class: "nav-link header__nav--btn" %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link header__nav--btn" %>
-    </div>
     </header>
     <%= yield %>
   </body>
