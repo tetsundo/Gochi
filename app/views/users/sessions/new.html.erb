@@ -1,6 +1,9 @@
+<div class="form-style" style="width:600px; margin:0 auto;">
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="ui form">
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -19,8 +22,10 @@
   <% end -%>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class: "ui fluid large teal submit button" %>
   </div>
+</div>
 <% end %>
 
 <%= render "users/shared/links" %>
+</div>

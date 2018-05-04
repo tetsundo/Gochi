@@ -9,6 +9,16 @@
   </head>
 
   <body>
+    <header class="ui borderless main menu">
+
+    <div class="ui text container">
+      <div class="header item">
+        <h2>Gochi</h2>
+      </div>
+      <%#= link_to "マイページ", user_path(user), class: "nav-link header__nav--btn" %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link header__nav--btn" %>
+    </div>
+    </header>
     <%= yield %>
   </body>
 </html>
