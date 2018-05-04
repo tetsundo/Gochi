@@ -1,2 +1,19 @@
-<h1>Stores#edit</h1>
-<p>Find me in app/views/stores/edit.html.erb</p>
+<h2>Store Info</h2>
+<%= form_for(@store) do |f| %>
+    <div class="field">
+        <%= f.label :name %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    </div>
+    <div class="field">
+        <%= f.label :image %>
+        <%= f.attachment_field :image %>
+    </div>
+    <div class="field">
+        <%= f.label :introduction %>
+        <%= f.text_area :intro, autofocus: true, autocomplete: "introduction" %>
+    </div>
+    <div class="actions">
+    <%= f.submit "Update Store"%>
+    </div>
+<% end %>
+
