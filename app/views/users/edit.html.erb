@@ -1,2 +1,19 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h1>ユーザー編集</h1>
+<%= form_for(@user) do |f| %>
+<table>
+  <tr>
+    <th>名前</th>
+    <th><%= f.text_field :name, autofocus: true %></th>
+  </tr>
+  <tr>
+    <th>アイコン画像</th>
+    <th><%= f.attachment_field :profile_image %></th>
+  </tr>
+  <tr>
+    <th>ひとこと</th>
+    <th><%= f.text_area :intro %></th>
+  </tr>
+</table>
+<%= f.submit "更新" %>
+<% end %>
+<%= link_to "戻る", user_path(cuurent_user.id) %>
