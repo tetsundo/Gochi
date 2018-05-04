@@ -1,2 +1,14 @@
-<h1>Stores#show</h1>
-<p>Find me in app/views/stores/show.html.erb</p>
+<h2>Store Info</h2>
+<table class="table">
+<tbody>
+	<tr></tr>
+	<tr>
+		<th>name</th>
+		<th><%=@store.name%></th>
+	</tr>
+	<tr>
+		<th>Introduction</th>
+		<th><%= @store.intro%></th>
+	</tr>
+</tbody>
+<%= link_to 'logout', destroy_user_session_path, class: "glyphicon glyphicon-log-out",method: :delete %>
