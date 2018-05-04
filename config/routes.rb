@@ -4,7 +4,6 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     registrations: 'users/registrations'
   }
-
   devise_for :stores, controllers: {
     sessions: 'stores/sessions',
     passwords: 'stores/passwords',
