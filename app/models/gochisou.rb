@@ -1,0 +1,2 @@
+class Gochisou < ApplicationRecord
+end

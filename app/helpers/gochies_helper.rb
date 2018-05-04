@@ -1,0 +1,2 @@
+module GochiesHelper
+end
