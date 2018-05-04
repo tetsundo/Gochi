@@ -1,2 +1,14 @@
-<h1>Staffs#new</h1>
-<p>Find me in app/views/staffs/new.html.erb</p>
+<h2>店員　新規登録</h2>
+
+<%= form_for(@staff) do |f| %>
+
+    <h4>Name</h4>
+    <%= f.text_field :name %>
+
+    <h4>Introduction</h4>
+    <%= f.text_area :intro %>
+	<br>
+	<br>
+    <%= f.submit 'Create Staff' %>
+
+<% end %>
