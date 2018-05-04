@@ -2,7 +2,7 @@ class StoresController < ApplicationController
   def edit
   	@store = Store.find(params[:id])
   end
- t def update
+  def update
   	@store = Store.find(params[:id])
   	@store.update(store_params)
     redirect_to store_path(@store.id)
