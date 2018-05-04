@@ -79,3 +79,6 @@ gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 
 # Facebook認証
 gem 'omniauth-facebook'
+
+# ransack
+gem 'ransack'
