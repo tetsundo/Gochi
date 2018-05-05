@@ -14,10 +14,16 @@ Rails.application.routes.draw do
 
   resources :stores do
     resources :gochies do
+      resources :thanks do
+        collection do
+          get 'complete'
+        end
+      end
       collection do
         get 'complete'
       end
     end
+
   end
 
   resources :staffs
