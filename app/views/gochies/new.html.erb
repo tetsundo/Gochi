@@ -1,24 +1,31 @@
 <h1>Gochiそう様フォーム</h1>
 <!-- お店の情報 -->
+  <%= form_for @gochisous, :url => {:controller => 'gochies', :action => 'create'} do |f| %>
   <table>
   	<tr>
-  	  <th><%= attachment_image_tag @store, :image_id, :fill, 50, 50, format: 'jpeg' %></th>
+  	  <th><%= attachment_image_tag @store, :image, :fill, 50, 50, format: 'jpeg' %></th>
   	  <th><%= @store.name %></th>
   	</tr>
+
+
   	<% @staffs.each do |staff| %>
   	<tr>
-  	  <th><%= attachment_image_tag staff, :image_id, :fill, 30, 30, format: 'jpeg' %></th>
+  	  <th><%= attachment_image_tag staff, :image, :fill, 30, 30, format: 'jpeg' %></th>
   	  <th>
-  	  	<div class="ui checkbox">
+  	  	
   	  	<label><%= staff.name %></label>
-  	  	<input type="checkbox" name="">
-		</div>
+  	  	<%= f.radio_button :staff_id, staff.id %>
+	
 	  </th>
   	</tr>
   	<% end %>
+
+
+
   </table>
 
 
-<%= f.text_area :opinion, placeholder:"20字以内でひとことあれば！" %>
+    <%= f.text_area :opinion, placeholder:"20字以内でひとことあれば！" %>
+    <%= f.submit "ごちそうさま" %>
+  <% end %>
 
-<%= link_to "ごちそうさま", _path, class: "ui red submit button"%>

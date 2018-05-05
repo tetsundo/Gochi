@@ -2,15 +2,17 @@ class GochiesController < ApplicationController
   def new
   	@store = Store.find(params[:store_id])
   	@staffs = @store.staffs
-  	@gochisou = Gochisou.new
+  	@gochisous = Gochisou.new
   end
 
   def create
   	store = Store.find(params[:store_id])
-    gochisou = current_user.gochisou.new(gochisou_params)
+    gochisou = Gochisou.new(gochisou_params)
+    gochisou.user_id = current_user.id
     gochisou.store_id = store.id
+    # binding.pry
     gochisou.save
-    redirect_to complete_store_gochies
+    redirect_to complete_store_gochies_path
   end
 
   def index
