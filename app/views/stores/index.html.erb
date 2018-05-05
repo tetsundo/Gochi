@@ -1,11 +1,12 @@
+<div class="main-content">
 	<h1>Store一覧</h1>
-<table class="table table-hover">
+<table class="ui celled striped table" style="width:100%;">
 		<tr>
 			<th>Image</th>
 			<th>Store</th>
 			<th>Introduction</th>
 		</tr>
-		<% @stores.each do |store| %>
+		<% @results.each do |store| %>
 			<tr>
 				<td><%= attachment_image_tag store, :image, :fill, 50, 50, format: 'jpeg' %></td>
 				<td><%= store.name %></td>
@@ -13,4 +14,4 @@
 				<td><%= link_to "詳細", store_path(store.id), class: "ui blue show button"%></td>
 			</tr>
 		<% end %>
-</table>
+</table></div>

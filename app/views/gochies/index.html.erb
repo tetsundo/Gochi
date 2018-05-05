@@ -1,9 +1,41 @@
 <div class="main-visual">
-
-
+  <div class="ui big form search_div">
+  <%= search_form_for @search do |f| %>
+    <h1>「ごちそうさま」から生まれる幸せ</h1>
+    <%= f.search_field :name_cont, class: "form-control field search_text", placeholder: "「ごちそうさま」を伝えよう！" %>
+    <div class="kenskaubtn">
+    <%= f.submit "検索", class: 'search_btn ui submit button' %>
+    </div>
+  <% end %>
+</div>
 </div>
 
 <div class="main-content">
-<h1>Gochies#index</h1>
-<p>Find me in app/views/gochies/index.html.erb</p>
+<h1>ごちそうさま一覧</h1>
+<table class="ui striped table" style="width:100%;">
+		<tr>
+			<th>Image</th>
+			<th>Store</th>
+			<th>Introduction</th>
+		</tr>
+
+			<tr>
+				<td>テスト<%#= attachment_image_tag store, :image, :fill, 50, 50, format: 'jpeg' %></td>
+				<td>テスと<%#= store.name %></td>
+				<td>テスト<%#= store.intro %></td>
+				<td>テスト<%#= link_to "詳細", store_path(store.id), class: "ui blue show button"%></td>
+			</tr>
+      <tr>
+				<td>テスト<%#= attachment_image_tag store, :image, :fill, 50, 50, format: 'jpeg' %></td>
+				<td>テスと<%#= store.name %></td>
+				<td>テスト<%#= store.intro %></td>
+				<td>テスト<%#= link_to "詳細", store_path(store.id), class: "ui blue show button"%></td>
+			</tr>
+      <tr>
+				<td>テスト<%#= attachment_image_tag store, :image, :fill, 50, 50, format: 'jpeg' %></td>
+				<td>テスと<%#= store.name %></td>
+				<td>テスト<%#= store.intro %></td>
+				<td>テスト<%#= link_to "詳細", store_path(store.id), class: "ui blue show button"%></td>
+			</tr>
+</table>
 </div>

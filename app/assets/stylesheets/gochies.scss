@@ -11,10 +11,26 @@
   background-size: cover;
   background-position:center 30%;
 }
+.main-content h1{
+  text-align: center;
+  padding: 10px 0;
+}
 
-.main-content{
-  width: 960px;
+.search_div{
   margin: 0 auto;
-  background-color: #e60000;
-  height: 500px;
+  width: 500px;
+  text-align: center;
+  padding-top: 100px;
+  h1{
+    color: #fff;
+    margin: 0;
+    margin-bottom: 30px;
+    font-size: 40px;
+  }
+}
+.search_text{
+width: 400px;
+}
+.kenskaubtn{
+  margin-top: 20px;
 }
