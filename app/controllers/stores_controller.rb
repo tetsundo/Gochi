@@ -2,6 +2,7 @@ class StoresController < ApplicationController
   def edit
   	@store = Store.find(params[:id])
   end
+
   def update
   	@store = Store.find(params[:id])
   	@store.update(store_params)
@@ -9,10 +10,11 @@ class StoresController < ApplicationController
   end
 
   def show
-  	@store = Store.find(params[:id])
-    if @store == current_store
+  	if @store == current_store
+  	@store = current_store
     @staffs = current_store.staffs.all.order(created_at: 'desc')
     else
+    @store = Store.find(params[:id])
     @staffs = @store.staffs.all.order(created_at: 'desc')
     end
     @staff = Staff.new
