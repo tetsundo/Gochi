@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
          omniauth_providers: [:twitter]
 
-
-
+has_many :thanks
+has_many :gochisous
 attachment :image
 
 def self.from_omniauth(auth)

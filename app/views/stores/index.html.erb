@@ -1,2 +1,16 @@
-<h1>Stores#index</h1>
-<p>Find me in app/views/stores/index.html.erb</p>
+	<h1>Store一覧</h1>
+<table class="table table-hover">
+		<tr>
+			<th>Image</th>
+			<th>Store</th>
+			<th>Introduction</th>
+		</tr>
+		<% @stores.each do |store| %>
+			<tr>
+				<td><%= attachment_image_tag store, :image, :fill, 50, 50, format: 'jpeg' %></td>
+				<td><%= store.name %></td>
+				<td><%= store.intro %></td>
+				<td><%= link_to "詳細", store_path(store.id), class: "ui blue show button"%></td>
+			</tr>
+		<% end %>
+</table>
