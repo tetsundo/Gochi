@@ -1,47 +1,88 @@
-<h2>Store Info</h2>
-<table class="table">
-<%= attachment_image_tag @store, :image, :fill, 300, 300, format: 'jpeg', fallback: "no_image.jpg" %> 
-<tbody>
-	<tr></tr>
+<%= link_to 'logout', destroy_user_session_path, class: "ui green button",method: :delete %>
+<div class="main-store-visual">
+<h1>Store Infore</h1>
+<div class="store-visual">
+<%= attachment_image_tag @store, :image, :fill, 300, 300, format: 'jpeg', fallback: "no_image.jpg", class: "main-visual"%>
+</div>
+</div>
+<table class="ui celled padded table">
+<thead>
 	<tr>
 		<th>name</th>
-		<th><%=@store.name%></th>
-	</tr>
-	<tr>
 		<th>Introduction</th>
-		<th><%= @store.intro%></th>
+		<% if @store.id == current_store.id then %>
+		<th></th>
+		<% end %>
 	</tr>
-	<% if @store.id == current_store.id then %>
+</thead>
+<tbody>
 	<tr>
-		<th>
+		<td><%=@store.name%></td>
+		<td><%= @store.intro%></td>
+	
+	<% if @store.id == current_store.id then %>
+		<td>
 		<%= link_to "編集", edit_store_path(current_store.id), class: "ui orange edit button"%>
-	</th>
+	</td>
 	</tr>
 	<% end %>
 </tbody>
 </table>
+<div class="ui two column grid">
+	<div class="column">
+<h1>Gochi一覧</h1>
+<table class="column ui celled padded table">
+	<thead>
+		<tr>
+			<th>お客様</th>
+			<th>ごちそうさま</th>
+			<th>ありがとうございました</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<tr>
+			
+		</tr>
+	</tbody>
+
+</table>
+</div>
+
+<div class="column">
 	<h1>Staff一覧</h1>
-<table class="table table-hover">
+<table class="ui celled padded table">
+		<thead>
 		<tr>
 			<th>Image</th>
 			<th>Staff</th>
 			<th>Introduction</th>
+			<% if @store.id == current_store.id then %>
+			<th></th>
+			<th></th>
+			<% end %>
 		</tr>
+		</thead>
 		<% @staffs.each do |staff| %>
+			<tbody>
 			<tr>
 				<td><%= attachment_image_tag staff, :image, :fill, 50, 50, format: 'jpeg' %></td>
 				<td><%= staff.name %></td>
 				<td><%= staff.introduction %></td>
-				<td><%= link_to "編集", edit_staff_path(staff.id), class: "ui blue edit button"%></td>
-				<td><%= link_to '除名',staff_path(staff.id), method: :delete, class: "ui red destroy button"%></td>
+				<td><%= link_to "編集", edit_staff_path(staff.id), class: "ui blue button"%></td>
+				<td><%= link_to '除名',staff_path(staff.id), method: :delete, class: "ui red button"%></td>
 			</tr>
+			</tbody>
 		<% end %>
 </table>
+</div>
+
 <% if @store.id == current_store.id then %>
+<div class="ui form">
 <h2>店員　新規登録</h2>
 
 <%= form_for(@staff) do |f| %>
-
+	<div class="two fields">
     <div class="field">
         <%= f.label :name %><br/>
         <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
@@ -50,14 +91,15 @@
    	  	<%= f.label :image %><br />
     		<%= f.attachment_field :image %>
   	</div>
+  	</div>
+
  		<div class="field">
         <%= f.label :introduction %><br/>
         <%= f.text_area :introduction, autofocus: true, autocomplete: "introduction" %>
     </div>
-    <div class="actions">
-    <%= f.submit 'Create Staff' %>
-  	</div>
+    <%= f.submit 'Create Staff', class: "ui button" %>
 <% end %>
 <% end %>
+</div>
 
-<%= link_to 'logout', destroy_user_session_path, class: "glyphicon glyphicon-log-out",method: :delete %>
+
