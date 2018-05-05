@@ -1,2 +1,16 @@
-<h1>Thanks#new</h1>
-<p>Find me in app/views/thanks/new.html.erb</p>
+<h1>ありがとうフォーム</h1>
+<!-- お店の情報 -->
+  <%= form_for @thank, :url => {:controller => 'thanks', :action => 'create'} do |f| %>
+  <table>
+  	<tr>
+  	  <th><%= attachment_image_tag @store, :image, :fill, 50, 50, format: 'jpeg' %></th>
+  	  <th><%= @store.name %></th>
+  	</tr>
+    <tr>
+  	  <th><%= attachment_image_tag @user, :image, :fill, 50, 50, format: 'jpeg' %></th>
+  	  <th><%= @user.name %>さんに感謝の気持ちを込めて</th>
+  	</tr>
+  </table>
+    <%= f.text_area :opinion, placeholder:"ありがとうを伝えよう" %>
+    <%= f.submit "ありがとう" %>
+  <% end %>
