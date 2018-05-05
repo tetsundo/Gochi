@@ -1,16 +1,15 @@
 class GochiesController < ApplicationController
   def new
-      @user = User.find(current_user.id)
-      @store = Store.find
-      @staffs = @store.staffs
-      @gochi = Gochi.new
+  	@store = Store.find(params[:store_id])
+  	@staffs = @store.staffs
+  	@gochisou = Gochisou.new
   end
 
   def create
-      store = Store.find(params[:store_id])
-    gochi = current_user.gochi.new(gochi_params)
-    gochi.store_id = store.id
-    gochi.save
+  	store = Store.find(params[:store_id])
+    gochisou = current_user.gochisou.new(gochisou_params)
+    gochisou.store_id = store.id
+    gochisou.save
     redirect_to complete_store_gochies
   end
 
@@ -18,7 +17,7 @@ class GochiesController < ApplicationController
   end
 
   def complete
-      @user = User.find(current_user.id)
+  	@user = User.find(current_user.id)
   end
 
   def show
@@ -26,7 +25,7 @@ class GochiesController < ApplicationController
 
   private
 
-  def gochi_params
-      params.require(:gochi).permit(:opinion,:user_id,:staff_id)
+  def gochisou_params
+  	params.require(:gochisou).permit(:opinion,:user_id,:staff_id)
   end
 end
