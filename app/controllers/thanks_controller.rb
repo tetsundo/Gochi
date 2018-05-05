@@ -16,7 +16,7 @@ class ThanksController < ApplicationController
     thank.store_id = @store.id
     thank.staff_id = @staff.id
     thank.gochi_id = @gochi.id
-    binding.pry
+    # binding.pry
     thank.save
     redirect_to complete_store_gochy_thanks_path(params[:store_id])
   end
