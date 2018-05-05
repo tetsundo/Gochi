@@ -16,6 +16,7 @@ class GochiesController < ApplicationController
   end
 
   def index
+    @gochisous = Gochisou.all
   end
 
   def complete

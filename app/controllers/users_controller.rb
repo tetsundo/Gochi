@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
+    @store = Store.all
   end
 
   def edit

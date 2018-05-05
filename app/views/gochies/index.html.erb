@@ -16,26 +16,15 @@
 		<tr>
 			<th>Image</th>
 			<th>Store</th>
-			<th>Introduction</th>
+			<th>Opinion</th>
 		</tr>
-
+		<% @gochisous.each do |gochi| %>
 			<tr>
-				<td>テスト<%#= attachment_image_tag store, :image, :fill, 50, 50, format: 'jpeg' %></td>
-				<td>テスと<%#= store.name %></td>
-				<td>テスト<%#= store.intro %></td>
-				<td>テスト<%#= link_to "詳細", store_path(store.id), class: "ui blue show button"%></td>
+				<td><%= attachment_image_tag gochi.store, :image, :fill, 50, 50, format: 'jpeg' %><%#= attachment_image_tag store, :image, :fill, 50, 50, format: 'jpeg' %></td>
+				<td><%= gochi.store.name %><%#= store.name %></td>
+				<td><%= gochi.opinion %><%#= store.intro %></td>
 			</tr>
-      <tr>
-				<td>テスト<%#= attachment_image_tag store, :image, :fill, 50, 50, format: 'jpeg' %></td>
-				<td>テスと<%#= store.name %></td>
-				<td>テスト<%#= store.intro %></td>
-				<td>テスト<%#= link_to "詳細", store_path(store.id), class: "ui blue show button"%></td>
-			</tr>
-      <tr>
-				<td>テスト<%#= attachment_image_tag store, :image, :fill, 50, 50, format: 'jpeg' %></td>
-				<td>テスと<%#= store.name %></td>
-				<td>テスト<%#= store.intro %></td>
-				<td>テスト<%#= link_to "詳細", store_path(store.id), class: "ui blue show button"%></td>
-			</tr>
+		<% end %>
+
 </table>
 </div>
