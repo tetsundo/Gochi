@@ -13,6 +13,7 @@ class StoresController < ApplicationController
   	if @store == current_store
   	@store = current_store
     @staffs = current_store.staffs.all.order(created_at: 'desc')
+    @gochisoues = @stores.gochisoues.all
     else
     @store = Store.find(params[:id])
     @staffs = @store.staffs.all.order(created_at: 'desc')
