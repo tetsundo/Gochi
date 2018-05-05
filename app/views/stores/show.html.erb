@@ -11,6 +11,48 @@
 		<th>Introduction</th>
 		<th><%= @store.intro%></th>
 	</tr>
+	<tr>
+		<th>
+		<%= link_to "編集", edit_store_path(current_store.id), class: "ui orange edit button"%>
+	</th>
+	</tr>
 </tbody>
+	<h1>Staff一覧</h1>
+<table class="table table-hover">
+		<tr>
+			<th>Image</th>
+			<th>Staff</th>
+			<th>Introduction</th>
+		</tr>
+		<% @staffs.each do |staff| %>
+			<tr>
+				<td><%= attachment_image_tag staff, :image, :fill, 50, 50, format: 'jpeg' %></td>
+				<td><%= staff.name %></td>
+				<td><%= staff.introduction %></td>
+				<td><%= link_to "編集", edit_staff_path(staff.id), class: "ui blue edit button"%></td>
+				<td><%= link_to '除名',staff_path(staff.id), method: :delete, class: "ui red destroy button"%></td>
+			</tr>
+		<% end %>
+</table>
+<h2>店員　新規登録</h2>
+
+<%= form_for(@staff) do |f| %>
+
+    <div class="field">
+        <%= f.label :name %><br/>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    </div>
+   	<div class="field">
+   	  	<%= f.label :image %><br />
+    		<%= f.attachment_field :image %>
+  	</div>
+ 		<div class="field">
+        <%= f.label :introduction %><br/>
+        <%= f.text_area :introduction, autofocus: true, autocomplete: "introduction" %>
+    </div>
+    <div class="actions">
+    <%= f.submit 'Create Staff' %>
+  	</div>
+<% end %>
+
 <%= link_to 'logout', destroy_user_session_path, class: "glyphicon glyphicon-log-out",method: :delete %>
-ra

@@ -10,6 +10,8 @@ class StoresController < ApplicationController
 
   def show
   	@store = Store.find(params[:id])
+    @staffs = current_store.staffs.all.order(created_at: 'desc')
+    @staff = Staff.new
   end
 
   def index
