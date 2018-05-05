@@ -1,9 +1,22 @@
 <h1>Gochiそう様フォーム</h1>
 <!-- お店の情報 -->
-  <!-- アイコン画像 -->
-  <!-- ストア名 -->
-  <!-- ストア -->
-  <!-- 店員さん選択 -->
+  <table>
+  	<tr>
+  	  <th><%= attachment_image_tag @store, :image_id, :fill, 50, 50, format: 'jpeg' %></th>
+  	  <th><%= @store.name %></th>
+  	</tr>
+  	<% @staffs.each do |staff| %>
+  	<tr>
+  	  <th><%= attachment_image_tag staff, :image_id, :fill, 30, 30, format: 'jpeg' %></th>
+  	  <th>
+  	  	<div class="ui checkbox">
+  	  	<label><%= staff.name %></label>
+  	  	<input type="checkbox" name="">
+		</div>
+	  </th>
+  	</tr>
+  	<% end %>
+  </table>
 
 
 <%= f.text_area :opinion, placeholder:"20字以内でひとことあれば！" %>
