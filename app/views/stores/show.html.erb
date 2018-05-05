@@ -19,7 +19,7 @@
 	<tr>
 		<td><%=@store.name%></td>
 		<td><%= @store.intro%></td>
-	
+
 	<% if @store.id == current_store.id then %>
 		<td>
 		<%= link_to "編集", edit_store_path(current_store.id), class: "ui orange edit button"%>
@@ -39,7 +39,7 @@
 			<th>ありがとうございました</th>
 		</tr>
 	</thead>
-	
+
 	<tbody>
 		<tr>
 			
