@@ -1,35 +1,27 @@
+<div class="ui page grid">
+          <div class="column computer only row">
+            <div class="four wide column">
+              <h2>ユーザー情報</h2>
+                <%= attachment_image_tag current_user, :image, :fill, 100, 100, format: 'jpeg', fallback:"no_image.jpg" %>
+<h3>名前</h3>
+<p><%= current_user.name %></p>
+<h3>紹介</h3>
+<p><%= current_user.intro %></p>
 
-<header>
-  <nav>
-  	<ul>
-  	  <li><%= link_to "ホーム", gochi_path %></li>
-  	  <li><%= link_to "マイページ", user_path(current_user) %></li>
-  	  <li><%= link_to "ログアウト", destroy_user_session_path %></li>
-  	</ul>
-  </nav>
-</header>
+          </div>
+            <div class="twelve wide column">
 
-
-<h2>ユーザー情報</h2>
-  <%= attachment_image_tag current_user, :image, :fill, 100, 100, format: 'jpeg', fallback:"no_image.jpg" %>
-  <table>
-    <tr>
-      <th>名前</th>
-      <th><%= current_user.name %></th>
-    </tr>
-    <tr>
-      <th>ひとこと</th>
-      <th><%= current_user.intro %></th>
-    </tr>
-  </table>
-
-<h2>myGOCHI一覧</h2>
-  <table>
-
-  	<tr>
-  	  <td>
-
-  	  </td>
-  	</tr>
-  	<% end %>
-  </table>
+              <h2>myGOCHI一覧</h2>
+              <table class="ui celled striped table">
+                <tr>
+                  <th>名前</th>
+                  <th>紹介</th>
+                </tr>
+                <tr>
+                  <td>テスト</td>
+                  <td>テスト</td>
+                </tr>
+              </table>
+            </div>
+</div>
+</div>

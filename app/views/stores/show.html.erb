@@ -1,5 +1,6 @@
 <h2>Store Info</h2>
 <table class="table">
+<%= attachment_image_tag @store, :image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %> 
 <tbody>
 	<tr></tr>
 	<tr>
@@ -12,3 +13,4 @@
 	</tr>
 </tbody>
 <%= link_to 'logout', destroy_user_session_path, class: "glyphicon glyphicon-log-out",method: :delete %>
+ra

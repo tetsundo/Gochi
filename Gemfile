@@ -77,5 +77,9 @@ gem 'seed-fu', '~> 2.3'
 # semantic UI
 gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 
-# Facebook認証
-gem 'omniauth-facebook'
+# Twitter認証
+gem 'omniauth'
+gem 'omniauth-twitter'
+
+# ransack
+gem 'ransack'
