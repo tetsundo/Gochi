@@ -3,12 +3,11 @@
             <div class="four wide column">
               <h2>ユーザー情報</h2>
                 <%= attachment_image_tag current_user, :image, :fill, 100, 100, format: 'jpeg', fallback:"no_image.jpg" %>
-
 <h3>名前</h3>
 <p><%= current_user.name %></p>
 <h3>紹介</h3>
 <p><%= current_user.intro %></p>
-  
+
           </div>
             <div class="twelve wide column">
 
