@@ -1,42 +1,31 @@
-<div class="ui page grid">
+<div class="ui page grid" style="margin-top:30px;">
           <div class="column computer only row">
-            <div class="four wide column">
-              <h2>ユーザー情報</h2>
-                <%= attachment_image_tag current_user, :image, :fill, 100, 100, format: 'jpeg', fallback:"no_image.jpg" %>
-<h3>名前</h3>
+            <div class="four wide column" style="text-align: center;">
+              <h2>Profile</h2>
+              <div style="border-radius: 50px;">
+                <%= attachment_image_tag current_user, :image, :fill, 150, 150, format: 'jpeg', fallback:"no_image.jpg", style:"border-radius: 75px;" %>
+              </div>
+<h3>name</h3>
 <p><%= current_user.name %></p>
-<h3>紹介</h3>
+<h3>introduction</h3>
 <p><%= current_user.intro %></p>
 
           </div>
             <div class="twelve wide column">
 
-              <h2>myGOCHI一覧</h2>
+              <h2>GOCHI 一覧</h2>
+
               <table class="ui celled striped table">
                 <tr>
-                  <th>名前</th>
-                  <th>紹介</th>
+                  <th>お店</th>
+                  <th>ひとこと</th>
                 </tr>
+                <% @store.each do |store| %>
                 <tr>
-                  <td>テスト</td>
-                  <td>テスト</td>
+                  <td><%= store.name %></td>
+                  <td><%= store.intro %></td>
                 </tr>
-                <tr>
-                  <td>テスト</td>
-                  <td>テスト</td>
-                </tr>
-                <tr>
-                  <td>テスト</td>
-                  <td>テスト</td>
-                </tr>
-                <tr>
-                  <td>テスト</td>
-                  <td>テスト</td>
-                </tr>
-                <tr>
-                  <td>テスト</td>
-                  <td>テスト</td>
-                </tr>
+                <% end %>
               </table>
             </div>
 </div>

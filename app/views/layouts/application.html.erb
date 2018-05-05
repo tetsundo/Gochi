@@ -17,10 +17,16 @@
         <% if user_signed_in? %>
           <%= link_to "マイページ", user_path(current_user.id), class: "item" %>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "item" %>
+        <% elsif  store_signed_in? %>
+          <%= link_to "ストアのマイページ", store_path(current_store.id), class: "item" %>
+          <%= link_to "ストアのログアウト", destroy_store_session_path, method: :delete, class: "item" %>
         <% else %>
           <%= link_to '登録', new_user_registration_path, class: "item" %>
           <%= link_to 'ログイン', new_user_session_path, class: "item" %>
+          <%= link_to 'ストアの登録', new_store_registration_path, class: "item" %>
+          <%= link_to 'ストアのログイン', new_store_session_path, class: "item"%>
         <% end %>
+
       </div>
     </header>
     <%= yield %>
