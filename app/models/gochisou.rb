@@ -6,3 +6,4 @@ class Gochisou < ApplicationRecord
 
   validates :opinion, length: { maximum: 20}
 end
+
