@@ -5,5 +5,6 @@ class Gochisou < ApplicationRecord
   belongs_to :user
 
   validates :opinion, length: { maximum: 20}
+
 end
 
