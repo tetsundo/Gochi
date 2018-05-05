@@ -10,6 +10,12 @@ class StoresController < ApplicationController
 
   def show
   	@store = Store.find(params[:id])
+    if @store == current_store
+    @staffs = current_store.staffs.all.order(created_at: 'desc')
+    else
+    @staffs = @store.staffs.all.order(created_at: 'desc')
+    end
+    @staff = Staff.new
   end
 
   def index

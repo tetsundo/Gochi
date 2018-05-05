@@ -4,13 +4,14 @@ class StaffsController < ApplicationController
   end
 
   def create
-  	staff = Staff.new(staff_params)
-  	staff.save
-  	redirect_to staffs_path
+  	@staff = Staff.new(staff_params)
+    @staff.store_id = current_store.id
+  	@staff.save
+  	redirect_to store_path(current_store.id)
   end
 
   def index
-  	@staff = Staff.all
+  	@staffs = Staff.all
   end
 
   def edit
@@ -26,7 +27,7 @@ class StaffsController < ApplicationController
 	def destroy
 	  	staff = Staff.find(params[:id])
 	    staff.destroy
-	    redirect_to staffs_path
+	    redirect_to store_path(current_store.id)
 	end
 
 	private
