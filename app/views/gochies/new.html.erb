@@ -3,7 +3,7 @@
   <table>
   	<tr>
   	  <th><%= attachment_image_tag @store, :image_id, :fill, 50, 50, format: 'jpeg' %></th>
-  	  <th><%= @store.name.find(params[:id]) %></th>
+  	  <th><%= @store.name %></th>
   	</tr>
   	<% @staffs.each do |staff| %>
   	<tr>
