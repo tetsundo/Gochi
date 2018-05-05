@@ -14,3 +14,23 @@
  *= require_self
  */
  @import 'semantic-ui';
+
+.clearfix{
+  content:"";
+  display: block;
+  clear: both;
+}
+.ui.menu{
+  margin: 0rem;
+}
+
+.twitter-btn{
+color: #fff;
+font-size: 12px;
+text-align: center;
+margin: 10px 0;
+display: block;
+padding: 10px;
+width: 150px;
+background-color: #55acee;
+}

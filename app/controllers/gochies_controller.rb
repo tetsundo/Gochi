@@ -4,7 +4,7 @@ class GochiesController < ApplicationController
   end
 
   def index
-  	@gochies = Gochies.find
+
   end
 
   def complete
