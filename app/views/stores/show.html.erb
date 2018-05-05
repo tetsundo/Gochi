@@ -18,6 +18,7 @@
 	<tr>
 		<td><%=@store.name%></td>
 		<td><%= @store.intro%></td>
+
 	<% if @store.id == current_store.id then %>
 		<td>
 		<%= link_to "編集", edit_store_path(current_store.id), class: "ui orange edit button"%>
@@ -28,6 +29,7 @@
 </table>
 <div class="ui two column grid">
 	<div class="column">
+
 		<h1>Gochi一覧</h1>
 		<table class="column ui celled padded table">
 			<thead>
@@ -48,6 +50,7 @@
 			<% end %>
 		</table>
 	</div>
+
 
 	<div class="column">
 		<h1>Staff一覧</h1>
