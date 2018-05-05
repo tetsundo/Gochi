@@ -7,7 +7,7 @@
 		</tr>
 		<% @staffs.each do |staff| %>
 			<tr>
-				<td><%= attachment_image_tag image, :image, :fill, 50, 50, format: 'jpeg' %></td>
+				<td><%= attachment_image_tag staff, :image, :fill, 50, 50, format: 'jpeg' %></td>
 				<td><%= staff.name %></td>
 				<td><%= staff.introduction %></td>
 			</tr>
