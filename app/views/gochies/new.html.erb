@@ -2,40 +2,33 @@
   <p></p>
   <h1>ごちそうさまフォーム</h1>
 </div>
-<!-- お店の情報 -->
-
 <div class="ui center aligned container">
+<!-- お店の情報 -->
+  <%= form_for @gochisous, :url => {:controller => 'gochies', :action => 'create'} do |f| %>
+
   <div><%= attachment_image_tag @store, :image, :fill, 400, 300, format: 'jpeg' %></div>
   <h2>『<%= @store.name %>』</h2>
-
-<div class="ui left aligned container">
-  <p></p>
-  <p>下記の表から、「ごちそうさま！」を伝えたい店員をひとり選んでください。</p>
-</div>
-  <%= form_for @gochisous, :url => {:controller => 'gochies', :action => 'create'} do |f| %>
-  <table class="ui celled padded table">
-  	<thead>
-  	  <th>店員一覧</th>
-  	  <th></th>
-  	  <th></th>
-  	</thead>
+	<div class="ui left aligned container">
+	  <p>下記から「ごちそうさま！」を伝えたい店員ひとり選択してください。</p>
+	</div>
+	<table class="ui celled padded table">
+	  <thead>
+		<tr>
+		  <th>店員一覧</th>
+		  <th></th>
+		  <th></th>
+		</tr>
+	  </thead>
   	<% @staffs.each do |staff| %>
   	<tr>
-  	  <th class="ui center aligned">
-  	  	<%= attachment_image_tag staff, :image, :fill, 200, 200, format: 'jpeg' %>
-  	 </th>
-  	  <th>
-  	  	<label><%= staff.name %></label>
-	  </th>
-	  <th class="ui center aligned">
-	  	<%= f.radio_button :staff_id, staff.id %>
-	  </th>
+  	  <th class="ui center aligned" ><%= attachment_image_tag staff, :image, :fill, 30, 30, format: 'jpeg' %></th>
+  	  <th><label><%= staff.name %></label></th>
+	  <th class="ui center aligned"><%= f.radio_button :staff_id, staff.id %></th>
   	</tr>
   	<% end %>
   </table>
 
-
-    <%= f.text_area :opinion, placeholder:"ひとことあれば！（20字以内）" , :size=>"30x1" %><br>
+    <%= f.text_area :opinion, placeholder:"20字以内でひとことあれば！", :size => "30×1" %><br>
     <%= f.submit "ごちそうさま" %>
   <% end %>
 
