@@ -5,5 +5,7 @@ class Store < ApplicationRecord
          :recoverable, :rememberable, :trackable,:validatable
 
    attachment :image
-  has_many :staffs
+  has_many :staffs, dependent: :destroy
+  has_many :thanks
+  has_many :gochisous
 end

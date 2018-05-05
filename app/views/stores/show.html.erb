@@ -11,12 +11,15 @@
 		<th>Introduction</th>
 		<th><%= @store.intro%></th>
 	</tr>
+	<% if @store.id == current_store.id then %>
 	<tr>
 		<th>
 		<%= link_to "編集", edit_store_path(current_store.id), class: "ui orange edit button"%>
 	</th>
 	</tr>
+	<% end %>
 </tbody>
+</table>
 	<h1>Staff一覧</h1>
 <table class="table table-hover">
 		<tr>
@@ -34,6 +37,7 @@
 			</tr>
 		<% end %>
 </table>
+<% if @store.id == current_store.id then %>
 <h2>店員　新規登録</h2>
 
 <%= form_for(@staff) do |f| %>
@@ -53,6 +57,7 @@
     <div class="actions">
     <%= f.submit 'Create Staff' %>
   	</div>
+<% end %>
 <% end %>
 
 <%= link_to 'logout', destroy_user_session_path, class: "glyphicon glyphicon-log-out",method: :delete %>
