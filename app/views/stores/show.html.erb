@@ -37,13 +37,15 @@
 					<th>ありがとうございました</th>
 				</tr>
 			</thead>
+			<% @gochisoues.each do |gochi| %>
 			<tbody>
 				<tr>
 					<td></td>
-					<td></td>
+					<td><%= gochi.user.name %></td>
 					<td></td>
 				</tr>
 			</tbody>
+			<% end %>
 		</table>
 	</div>
 
