@@ -10,15 +10,18 @@ Rails.application.routes.draw do
     passwords: 'stores/passwords',
     registrations: 'stores/registrations'
   }
-  resources :users do
+  root 'gochies#index'
+
+  resources :stores do
     resources :gochies do
-    collection do
-      get 'complete'
+      collection do
+        get 'complete'
+      end
     end
   end
-  end
-  resources :stores
+
   resources :staffs
+  resources :users
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

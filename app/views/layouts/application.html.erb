@@ -12,7 +12,7 @@
     <header class="ui borderless main menu">
       <div class="ui text container">
         <div class="header item">
-          <h2>Gochi</h2>
+          <h2><%= link_to "Gochi", root_path, class: "color" %></h2>
         </div>
         <% if user_signed_in? %>
           <%= link_to "マイページ", user_path(current_user.id), class: "item" %>
