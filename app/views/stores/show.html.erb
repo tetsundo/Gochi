@@ -1,3 +1,4 @@
+<% if store_signed_in? %>
 <div class="main-store-visual">
 <h1>Store Infore</h1>
 <div class="store-visual">
@@ -39,7 +40,7 @@
 					<th>ありがとうございました</th>
 				</tr>
 			</thead>
-			<% @gochisoues.each do |gochi| %>
+			<% @gochisous.each do |gochi| %>
 			<tbody>
 				<tr>
 					<td></td>
@@ -106,4 +107,69 @@
 <% end %>
 </div>
 
+
+<% else %>
+
+
+<div class="main-store-visual">
+<h1>Store Infore</h1>
+<div class="store-visual">
+<%= attachment_image_tag @store, :image, :fill, 800, 350, format: 'jpeg', fallback: "no_image.jpg"%>
+</div>
+</div>
+<table class="ui celled padded table">
+<thead>
+	<tr>
+		<th>name</th>
+		<th>Introduction</th>
+		
+		<th></th>
+		
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<td><%=@store.name%></td>
+		<td><%= @store.intro%></td>
+	
+		<td><%= link_to "GOCHI", new_store_gochy_path(@store.id)%></td>
+	</tr>
+
+</tbody>
+</table>
+<div class="ui two column grid">
+	
+
+	<div class="column">
+		<h1>Staff一覧</h1>
+		<table class="ui celled padded table">
+			<thead>
+			<tr>
+				<th>Image</th>
+				<th>Staff</th>
+				<th>Introduction</th>
+			
+				<th></th>
+				<th></th>
+				
+			</tr>
+		</thead>
+		<% @staffs.each do |staff| %>
+			<tbody>
+			<tr>
+				<td><%= attachment_image_tag staff, :image, :fill, 50, 50, format: 'jpeg' %></td>
+				<td><%= staff.name %></td>
+				<td><%= staff.introduction %></td>
+				<td><%= link_to "編集", edit_staff_path(staff.id), class: "ui blue button"%></td>
+				<td><%= link_to '除名',staff_path(staff.id), method: :delete, class: "ui red button"%></td>
+			</tr>
+			</tbody>
+		<% end %>
+		</table>
+	</div>
+</div>
+
+
+</div>
+<% end %>
 
