@@ -1,8 +1,7 @@
-<%= link_to 'logout', destroy_user_session_path, class: "ui green button",method: :delete %>
 <div class="main-store-visual">
 <h1>Store Infore</h1>
 <div class="store-visual">
-<%= attachment_image_tag @store, :image, :fill, 300, 300, format: 'jpeg', fallback: "no_image.jpg", class: "main-visual"%>
+<%= attachment_image_tag @store, :image, :fill, 800, 350, format: 'jpeg', fallback: "no_image.jpg"%>
 </div>
 </div>
 <table class="ui celled padded table">
@@ -19,7 +18,6 @@
 	<tr>
 		<td><%=@store.name%></td>
 		<td><%= @store.intro%></td>
-	
 	<% if @store.id == current_store.id then %>
 		<td>
 		<%= link_to "編集", edit_store_path(current_store.id), class: "ui orange edit button"%>
@@ -30,38 +28,38 @@
 </table>
 <div class="ui two column grid">
 	<div class="column">
-<h1>Gochi一覧</h1>
-<table class="column ui celled padded table">
-	<thead>
-		<tr>
-			<th>お客様</th>
-			<th>ごちそうさま</th>
-			<th>ありがとうございました</th>
-		</tr>
-	</thead>
-	
-	<tbody>
-		<tr>
-			
-		</tr>
-	</tbody>
+		<h1>Gochi一覧</h1>
+		<table class="column ui celled padded table">
+			<thead>
+				<tr>
+					<th>お客様</th>
+					<th>ごちそうさま</th>
+					<th>ありがとうございました</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 
-</table>
-</div>
-
-<div class="column">
-	<h1>Staff一覧</h1>
-<table class="ui celled padded table">
-		<thead>
-		<tr>
-			<th>Image</th>
-			<th>Staff</th>
-			<th>Introduction</th>
+	<div class="column">
+		<h1>Staff一覧</h1>
+		<table class="ui celled padded table">
+			<thead>
+			<tr>
+				<th>Image</th>
+				<th>Staff</th>
+				<th>Introduction</th>
 			<% if @store.id == current_store.id then %>
-			<th></th>
-			<th></th>
-			<% end %>
-		</tr>
+				<th></th>
+				<th></th>
+				<% end %>
+			</tr>
 		</thead>
 		<% @staffs.each do |staff| %>
 			<tbody>
@@ -74,7 +72,8 @@
 			</tr>
 			</tbody>
 		<% end %>
-</table>
+		</table>
+	</div>
 </div>
 
 <% if @store.id == current_store.id then %>
