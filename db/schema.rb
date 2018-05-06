@@ -46,8 +46,6 @@ ActiveRecord::Schema.define(version: 20180505083656) do
     t.text "name"
     t.text "intro"
     t.text "image_id"
-    t.string "provider"
-    t.string "uid"
     t.index ["email"], name: "index_stores_on_email", unique: true
     t.index ["reset_password_token"], name: "index_stores_on_reset_password_token", unique: true
   end
